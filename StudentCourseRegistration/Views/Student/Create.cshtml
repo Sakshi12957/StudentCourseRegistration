@@ -1,0 +1,61 @@
+﻿@model StudentCourseRegistration.Models.Student
+
+@{
+    ViewData["Title"] = "Student Registration";
+}
+
+<div class="container mt-4">
+    <h2>Student Registration Form</h2>
+
+    <form asp-action="Create" method="post">
+
+        <div asp-validation-summary="All"
+             class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control"
+                   placeholder="Enter student name" />
+            <span asp-validation-for="Name"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control"
+                   placeholder="Enter email" />
+            <span asp-validation-for="Email"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Course" class="form-label"></label>
+            <select asp-for="Course" class="form-select">
+                <option value="">Select Course</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+            </select>
+            <span asp-validation-for="Course"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Semester" class="form-label"></label>
+            <input asp-for="Semester" type="number"
+                   class="form-control"
+                   placeholder="Enter semester (1-8)" />
+            <span asp-validation-for="Semester"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Register Student
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Back
+        </a>
+
+    </form>
+</div>
